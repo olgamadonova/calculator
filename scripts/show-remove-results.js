@@ -1,4 +1,4 @@
-import {result} from './calculate.js';
+import { result, resultElement  as currentResult } from './calculate.js';
 
 const resultsAreaElement = document.querySelector('[data-results-area]');
 
@@ -12,7 +12,7 @@ const resultElement = createResultElement('div', 'calculator__result-item');
 
 const showResultElementsHandler = () => {
     const currentResultElement = resultElement.cloneNode(true);
-    currentResultElement.textContent = isNaN(result)? '-': result;
+    currentResultElement.textContent = isNaN(result)? '-': currentResult.innerText;
     resultsAreaElement.append(currentResultElement);
 }
 
@@ -23,4 +23,8 @@ const removeResultElementsHandler = (evt) => {
     }
 }
 
-export {resultsAreaElement, showResultElementsHandler, removeResultElementsHandler}
+export {
+    resultsAreaElement,
+    showResultElementsHandler,
+    removeResultElementsHandler
+}
