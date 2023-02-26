@@ -4,6 +4,13 @@ const operandElement = document.querySelector('[data-operand]');
 const enterElement = document.querySelector('[data-enter]');
 const resultElement = document.querySelector('[data-result]');
 
+const MathOperator = {
+    Plus: 'plus',
+    Multiply: 'multiply',
+    Minus: 'minus',
+    Divide: 'divide',
+}
+
 let result = 0;
 
 const enterElementHandler = () => {
@@ -17,16 +24,16 @@ const enterElementHandler = () => {
         return;
     }
     switch (operation) {
-        case ('plus'):
+        case (MathOperator.Plus):
             result = firstNumber + secondNumber;
             break;
-        case('multiply'):
+        case(MathOperator.Multiply):
             result = firstNumber * secondNumber;
             break;
-        case ('minus'):
+        case (MathOperator.Minus):
             result = firstNumber - secondNumber;
             break;
-        case('divide'):
+        case(MathOperator.Divide):
             result = (secondNumber === 0)? 'делить на ноль нельзя': firstNumber/secondNumber;
             break;
         default:
